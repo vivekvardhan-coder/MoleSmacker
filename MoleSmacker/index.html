@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="mole.png" type="image/png">
+  <title>MoleSmacker - Modern Whack-a-Mole Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional styles for the dots animation */
+    .dots-animation {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Allows clicks to pass through */
+      z-index: 1;
+      opacity: 0.5; /* Adjust transparency as needed */
+    }
+    
+    /* Ensure dots don't interfere with text readability */
+    header {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-page" id="landing-page">
+    <!-- Add the flowing dots animation here, just below the landing-page opening tag -->
+    <div class="dots-animation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+        <defs>
+          <!-- Gradient definitions -->
+          <linearGradient id="dotGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3498db" />
+            <stop offset="100%" stop-color="#9b59b6" />
+          </linearGradient>
+          <linearGradient id="dotGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#2ecc71" />
+            <stop offset="100%" stop-color="#3498db" />
+          </linearGradient>
+          <linearGradient id="dotGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#e74c3c" />
+            <stop offset="100%" stop-color="#f39c12" />
+          </linearGradient>
+          
+          <!-- Animation paths -->
+          <path id="flowPath1" d="M-20,50 Q200,20 400,80 T800,60" fill="none" />
+          <path id="flowPath2" d="M-20,150 Q150,100 380,170 T800,130" fill="none" />
+          <path id="flowPath3" d="M-20,250 Q250,200 450,260 T800,220" fill="none" />
+        </defs>
+        
+        <!-- First row of dots -->
+        <g>
+          <!-- 10 dots with gradient 1 on path 1 -->
+          <circle r="10" fill="url(#dotGradient1)">
+            <animateMotion dur="15s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="8" fill="url(#dotGradient1)">
+            <animateMotion dur="18s" begin="1s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="6" fill="url(#dotGradient1)">
+            <animateMotion dur="12s" begin="2s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="12" fill="url(#dotGradient1)">
+            <animateMotion dur="20s" begin="3s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="7" fill="url(#dotGradient1)">
+            <animateMotion dur="16s" begin="4s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="9" fill="url(#dotGradient1)">
+            <animateMotion dur="17s" begin="5s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="5" fill="url(#dotGradient1)">
+            <animateMotion dur="13s" begin="6s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="11" fill="url(#dotGradient1)">
+            <animateMotion dur="19s" begin="7s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="8" fill="url(#dotGradient1)">
+            <animateMotion dur="14s" begin="8s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+          <circle r="10" fill="url(#dotGradient1)">
+            <animateMotion dur="21s" begin="9s" repeatCount="indefinite" path="M-20,50 Q200,20 400,80 T800,60" />
+          </circle>
+        </g>
+        
+        <!-- Second row of dots -->
+        <g>
+          <!-- 10 dots with gradient 2 on path 2 -->
+          <circle r="9" fill="url(#dotGradient2)">
+            <animateMotion dur="16s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="7" fill="url(#dotGradient2)">
+            <animateMotion dur="19s" begin="1s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="11" fill="url(#dotGradient2)">
+            <animateMotion dur="13s" begin="2s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="6" fill="url(#dotGradient2)">
+            <animateMotion dur="21s" begin="3s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="10" fill="url(#dotGradient2)">
+            <animateMotion dur="17s" begin="4s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="8" fill="url(#dotGradient2)">
+            <animateMotion dur="14s" begin="5s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="12" fill="url(#dotGradient2)">
+            <animateMotion dur="20s" begin="6s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="7" fill="url(#dotGradient2)">
+            <animateMotion dur="15s" begin="7s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="9" fill="url(#dotGradient2)">
+            <animateMotion dur="18s" begin="8s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+          <circle r="5" fill="url(#dotGradient2)">
+            <animateMotion dur="12s" begin="9s" repeatCount="indefinite" path="M-20,150 Q150,100 380,170 T800,130" />
+          </circle>
+        </g>
+        
+        <!-- Third row of dots -->
+        <g>
+          <!-- 10 dots with gradient 3 on path 3 -->
+          <circle r="8" fill="url(#dotGradient3)">
+            <animateMotion dur="17s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="10" fill="url(#dotGradient3)">
+            <animateMotion dur="14s" begin="1s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="6" fill="url(#dotGradient3)">
+            <animateMotion dur="20s" begin="2s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="9" fill="url(#dotGradient3)">
+            <animateMotion dur="15s" begin="3s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="7" fill="url(#dotGradient3)">
+            <animateMotion dur="18s" begin="4s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="11" fill="url(#dotGradient3)">
+            <animateMotion dur="13s" begin="5s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="5" fill="url(#dotGradient3)">
+            <animateMotion dur="21s" begin="6s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="8" fill="url(#dotGradient3)">
+            <animateMotion dur="16s" begin="7s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="12" fill="url(#dotGradient3)">
+            <animateMotion dur="14s" begin="8s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+          <circle r="7" fill="url(#dotGradient3)">
+            <animateMotion dur="19s" begin="9s" repeatCount="indefinite" path="M-20,250 Q250,200 450,260 T800,220" />
+          </circle>
+        </g>
+      </svg>
+    </div>
+    
+    <header>
+      <h1 class="main-title">MoleSmacker</h1>
+      <p class="tagline">The Ultimate Whack-a-Mole Experience</p>
+    </header>
+    
+    <div class="game-intro">
+      <div class="intro-content">
+        <h2>Welcome to MoleSmacker!</h2>
+        <p>Get ready for a fresh take on the classic arcade game. Test your reflexes and coordination as you smack pesky moles trying to invade your garden!</p>
+        
+        <div class="features-container">
+          <div class="feature-list">
+            <div class="feature">
+              <div class="feature-icon">🎯</div>
+              <div class="feature-text">
+                <h3>Test Your Reflexes</h3>
+                <p>Quick reactions are key to becoming a mole-smacking champion!</p>
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-icon">🔥</div>
+              <div class="feature-text">
+                <h3>Build Combos</h3>
+                <p>Chain hits together for multiplied points and special effects!</p>
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-icon">⬆️</div>
+              <div class="feature-text">
+                <h3>Level Up</h3>
+                <p>As you score more points, the difficulty increases and the moles get faster!</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="instructions-container">
+            <h3 class="how">How to Play:</h3>
+            <ol class="instructions">
+              <li>Click or tap on the moles as they pop up from their holes</li>
+              <li>Each successful hit earns you points</li>
+              <li>Hit multiple moles in succession to build combos and earn bonus points</li>
+              <li>Try to achieve the highest score within the time limit</li>
+              <li>As you level up, moles will appear and disappear faster</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+        
+      <button id="start-intro" class="start-button">Start Game</button>
+      
+      <div class="intro-image">
+        <div class="preview-container">
+          <div class="preview-hole">
+            <div class="preview-mole"></div>
+            <div class="preview-hammer"></div>
+            <div class="preview-hit-effect"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="game-container" id="game-container">
+    <div class="game-header">
+      <div class="game-title">MoleSmacker</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value" id="score">0</div>
+          <div class="stat-label">Score</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="timer">60</div>
+          <div class="stat-label">Time</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="game-board" id="board">
+      <!-- Holes will be generated by JavaScript -->
+    </div>
+    
+    <div class="game-controls">
+      <button id="start-button" class="start-button-1">Start Game</button>
+    </div>
+    
+    <div class="countdown" id="countdown">
+      <div class="countdown-number">3</div>
+    </div>
+    
+    <div class="game-over" id="game-over">
+      <h2>Game Over!</h2>
+      <div class="final-score">0</div>
+      <div class="buttons">
+        <button class="play-again" id="play-again">Play Again</button>
+        <button class="back-to-intro" id="back-to-intro">Back to Intro</button>
+      </div>
+    </div>
+    
+    <div class="level-indicator" id="level">Level: 1</div>
+  </div>
+  
+  <div class="hammer" id="hammer"></div>
+
+  <div class="grass-animation">
+    <!-- SVG code goes here -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+      <!-- Background -->
+      <rect width="800" height="300" fill="#5d745e" />
+      
+      <!-- Dirt background -->
+      <rect width="800" height="80" y="220" fill="#8b5a2b" />
+      
+      <!-- Grass tufts -->
+      <g id="grass">
+        <!-- Row 1 -->
+        <path d="M10,220 C15,200 20,190 25,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M30,220 C40,180 50,190 40,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M60,220 C70,190 80,180 90,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M120,220 C130,190 140,200 150,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M180,220 C190,180 200,190 210,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M240,220 C250,190 260,180 270,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M300,220 C310,200 320,190 330,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M360,220 C370,180 380,200 390,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M420,220 C430,190 440,180 450,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M480,220 C490,200 500,190 510,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M540,220 C550,180 560,200 570,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M600,220 C610,190 620,180 630,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M660,220 C670,200 680,190 690,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M720,220 C730,180 740,200 750,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M780,220 C790,190 800,180 810,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        
+        <!-- Row 2 (slightly different pattern) -->
+        <path d="M0,220 C5,200 15,190 25,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M45,220 C55,190 65,180 75,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M95,220 C105,200 115,190 125,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M145,220 C155,180 165,200 175,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M195,220 C205,190 215,180 225,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M255,220 C265,200 275,190 285,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M315,220 C325,180 335,200 345,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M375,220 C385,190 395,180 405,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M435,220 C445,200 455,190 465,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M495,220 C505,180 515,200 525,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M555,220 C565,190 575,180 585,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M615,220 C625,200 635,190 645,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M675,220 C685,180 695,200 705,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M735,220 C745,190 755,180 765,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+        <path d="M795,220 C805,200 815,190 825,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      </g>
+    
+      <!-- Mole holes -->
+      <g id="holes">
+        <!-- Hole 1 -->
+        <ellipse cx="100" cy="220" rx="25" ry="10" fill="#3E2723" />
+        <!-- Hole 2 -->
+        <ellipse cx="250" cy="220" rx="25" ry="10" fill="#3E2723" />
+        <!-- Hole 3 -->
+        <ellipse cx="400" cy="220" rx="25" ry="10" fill="#3E2723" />
+        <!-- Hole 4 -->
+        <ellipse cx="550" cy="220" rx="25" ry="10" fill="#3E2723" />
+        <!-- Hole 5 -->
+        <ellipse cx="700" cy="220" rx="25" ry="10" fill="#3E2723" />
+      </g>
+    
+      <!-- Moles -->
+      <!-- Mole 1 -->
+      <g id="mole1">
+        <ellipse cx="100" cy="220" rx="15" ry="8" fill="#8B4513" />
+        <!-- Mole head -->
+        <circle cx="100" cy="220" r="12" fill="#A0522D">
+          <animate attributeName="cy" values="250;210;210;250" dur="4s" begin="0.5s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole eyes -->
+        <circle cx="95" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="4s" begin="0.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="105" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="4s" begin="0.5s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole nose -->
+        <ellipse cx="100" cy="223" rx="3" ry="2" fill="#FF69B4">
+          <animate attributeName="cy" values="253;213;213;253" dur="4s" begin="0.5s" repeatCount="indefinite" />
+        </ellipse>
+      </g>
+    
+      <!-- Mole 2 -->
+      <g id="mole2">
+        <ellipse cx="250" cy="220" rx="15" ry="8" fill="#8B4513" />
+        <!-- Mole head -->
+        <circle cx="250" cy="220" r="12" fill="#A0522D">
+          <animate attributeName="cy" values="250;210;210;250" dur="3s" begin="2s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole eyes -->
+        <circle cx="245" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="3s" begin="2s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="255" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="3s" begin="2s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole nose -->
+        <ellipse cx="250" cy="223" rx="3" ry="2" fill="#FF69B4">
+          <animate attributeName="cy" values="253;213;213;253" dur="3s" begin="2s" repeatCount="indefinite" />
+        </ellipse>
+      </g>
+    
+      <!-- Mole 3 -->
+      <g id="mole3">
+        <ellipse cx="400" cy="220" rx="15" ry="8" fill="#8B4513" />
+        <!-- Mole head -->
+        <circle cx="400" cy="220" r="12" fill="#A0522D">
+          <animate attributeName="cy" values="250;210;210;250" dur="5s" begin="1s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole eyes -->
+        <circle cx="395" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="5s" begin="1s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="405" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="5s" begin="1s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole nose -->
+        <ellipse cx="400" cy="223" rx="3" ry="2" fill="#FF69B4">
+          <animate attributeName="cy" values="253;213;213;253" dur="5s" begin="1s" repeatCount="indefinite" />
+        </ellipse>
+      </g>
+    
+      <!-- Mole 4 -->
+      <g id="mole4">
+        <ellipse cx="550" cy="220" rx="15" ry="8" fill="#8B4513" />
+        <!-- Mole head -->
+        <circle cx="550" cy="220" r="12" fill="#A0522D">
+          <animate attributeName="cy" values="250;210;210;250" dur="4.5s" begin="3s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole eyes -->
+        <circle cx="545" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="4.5s" begin="3s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="555" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="4.5s" begin="3s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole nose -->
+        <ellipse cx="550" cy="223" rx="3" ry="2" fill="#FF69B4">
+          <animate attributeName="cy" values="253;213;213;253" dur="4.5s" begin="3s" repeatCount="indefinite" />
+        </ellipse>
+      </g>
+    
+      <!-- Mole 5 -->
+      <g id="mole5">
+        <ellipse cx="700" cy="220" rx="15" ry="8" fill="#8B4513" />
+        <!-- Mole head -->
+        <circle cx="700" cy="220" r="12" fill="#A0522D">
+          <animate attributeName="cy" values="250;210;210;250" dur="3.8s" begin="1.5s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole eyes -->
+        <circle cx="695" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="3.8s" begin="1.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="705" cy="220" r="2" fill="black">
+          <animate attributeName="cy" values="250;210;210;250" dur="3.8s" begin="1.5s" repeatCount="indefinite" />
+        </circle>
+        <!-- Mole nose -->
+        <ellipse cx="700" cy="223" rx="3" ry="2" fill="#FF69B4">
+          <animate attributeName="cy" values="253;213;213;253" dur="3.8s" begin="1.5s" repeatCount="indefinite" />
+        </ellipse>
+      </g>
+    
+      <!-- Additional grass tufts in front of holes -->
+      <path d="M80,220 C85,210 90,205 95,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      <path d="M105,220 C110,210 115,205 120,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      
+      <path d="M230,220 C235,210 240,205 245,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      <path d="M255,220 C260,210 265,205 270,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      
+      <path d="M380,220 C385,210 390,205 395,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      <path d="M405,220 C410,210 415,205 420,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      
+      <path d="M530,220 C535,210 540,205 545,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      <path d="M555,220 C560,210 565,205 570,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      
+      <path d="M680,220 C685,210 690,205 695,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+      <path d="M705,220 C710,210 715,205 720,220" fill="#4CAF50" stroke="#2E7D32" stroke-width="1" />
+    </svg>
+  </div>
+  
+  <script src="script.js"></script>
+  
+  <footer class="copyright">
+    &copy; 2025 MoleSmacker Game | All Rights Reserved.
+  </footer>
+  
+  <div class="grass-animation"></div>
+</body>
+</html>
